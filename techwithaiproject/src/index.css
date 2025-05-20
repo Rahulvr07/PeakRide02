@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Brand Colors */
+    --color-primary-50: 236 246 245;
+    --color-primary-100: 209 232 229;
+    --color-primary-200: 166 210 205;
+    --color-primary-300: 117 181 175;
+    --color-primary-400: 77 153 146;
+    --color-primary-500: 48 125 117;
+    --color-primary-600: 30 99 92;
+    --color-primary-700: 30 77 71;
+    --color-primary-800: 30 58 58; /* #1E3A3A */
+    --color-primary-900: 25 48 48;
+    --color-primary-950: 13 31 31;
+    
+    /* Secondary Colors */
+    --color-secondary-50: 236 244 250;
+    --color-secondary-100: 208 227 243;
+    --color-secondary-200: 162 195 224;
+    --color-secondary-300: 107 156 199;
+    --color-secondary-400: 61 116 168;
+    --color-secondary-500: 15 76 117; /* #0F4C75 */
+    --color-secondary-600: 12 61 94;
+    --color-secondary-700: 14 48 72;
+    --color-secondary-800: 15 39 57;
+    --color-secondary-900: 15 34 48;
+    --color-secondary-950: 11 23 31;
+    
+    /* Accent Colors */
+    --color-accent-50: 255 241 238;
+    --color-accent-100: 255 228 220;
+    --color-accent-200: 255 204 187;
+    --color-accent-300: 255 170 144;
+    --color-accent-400: 255 143 109;
+    --color-accent-500: 255 126 103; /* #FF7E67 */
+    --color-accent-600: 230 76 50;
+    --color-accent-700: 194 50 30;
+    --color-accent-800: 158 40 26;
+    --color-accent-900: 133 39 28;
+    --color-accent-950: 71 18 11;
+    
+    /* Success, Warning, Error Colors */
+    --color-success-500: 34 197 94;
+    --color-warning-500: 245 158 11;
+    --color-error-500: 239 68 68;
+    
+    /* Neutral Colors */
+    --color-slate-50: 248 250 252;
+    --color-slate-100: 241 245 249;
+    --color-slate-200: 226 232 240;
+    --color-slate-300: 203 213 225;
+    --color-slate-400: 148 163 184;
+    --color-slate-500: 100 116 139;
+    --color-slate-600: 71 85 105;
+    --color-slate-700: 51 65 85;
+    --color-slate-800: 30 41 59;
+    --color-slate-900: 15 23 42;
+    --color-slate-950: 2 6 23;
+  }
+  
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-50;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  /* Form elements */
+  input, select, textarea {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 transition duration-200;
+  }
+  
+  /* Animation utilities */
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out forwards;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .animate-pulse-slow {
+    animation: pulseSlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulseSlow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500;
+  }
+  
+  .btn-accent {
+    @apply btn bg-accent-500 text-white hover:bg-accent-600 focus:ring-accent-400;
+  }
+  
+  .btn-outline {
+    @apply btn bg-transparent border border-slate-300 hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800;
+  }
+  
+  .btn-ghost {
+    @apply btn bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800;
+  }
+  
+  .btn-small {
+    @apply px-3 py-1.5 text-sm;
+  }
+  
+  .btn-large {
+    @apply px-6 py-3 text-lg;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden;
+  }
+  
+  .input {
+    @apply w-full px-4 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .badge-primary {
+    @apply badge bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-100;
+  }
+  
+  .badge-secondary {
+    @apply badge bg-secondary-100 text-secondary-800 dark:bg-secondary-900 dark:text-secondary-100;
+  }
+  
+  .badge-accent {
+    @apply badge bg-accent-100 text-accent-800 dark:bg-accent-900 dark:text-accent-100;
+  }
+  
+  .badge-success {
+    @apply badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100;
+  }
+  
+  .badge-warning {
+    @apply badge bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-100;
+  }
+  
+  .badge-error {
+    @apply badge bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100;
+  }
+}
